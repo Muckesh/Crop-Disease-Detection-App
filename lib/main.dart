@@ -1,4 +1,4 @@
-import 'package:crop_disease_detection/screens/OnBoardingScreen.dart';
+import 'package:crop_disease_detection/screens/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,10 +16,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
-        
       ),
-      home: OnBoardingScreen(),
+      home: const OnBoardingScreen(),
     );
   }
 }
-

@@ -1,5 +1,5 @@
 import 'package:crop_disease_detection/constants/constants.dart';
-import 'package:crop_disease_detection/screens/LoginScreen.dart';
+import 'package:crop_disease_detection/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 
 class OnBoardingScreen extends StatefulWidget {
