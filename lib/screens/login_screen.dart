@@ -1,6 +1,6 @@
 import 'package:crop_disease_detection/constants/constants.dart';
 import 'package:crop_disease_detection/screens/forgot_password_screen.dart';
-import 'package:crop_disease_detection/screens/home_screen.dart';
+import 'package:crop_disease_detection/screens/main_screen.dart';
 import 'package:crop_disease_detection/screens/signup_screen.dart';
 import 'package:crop_disease_detection/screens/widgets/CustomTextField.dart';
 import 'package:flutter/material.dart';
@@ -50,7 +50,7 @@ class LoginScreen extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     PageTransition(
-                      child: const HomeScreen(),
+                      child: const MainScreen(),
                       type: PageTransitionType.bottomToTop,
                     ),
                   );

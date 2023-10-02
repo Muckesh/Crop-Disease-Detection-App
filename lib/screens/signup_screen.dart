@@ -1,6 +1,6 @@
 import 'package:crop_disease_detection/constants/constants.dart';
-import 'package:crop_disease_detection/screens/home_screen.dart';
 import 'package:crop_disease_detection/screens/login_screen.dart';
+import 'package:crop_disease_detection/screens/main_screen.dart';
 import 'package:crop_disease_detection/screens/widgets/CustomTextField.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
@@ -54,7 +54,7 @@ class SignupScreen extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     PageTransition(
-                      child: const HomeScreen(),
+                      child: const MainScreen(),
                       type: PageTransitionType.bottomToTop,
                     ),
                   );
