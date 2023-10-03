@@ -1,4 +1,7 @@
-import 'package:crop_disease_detection/constants/constants.dart';
+import 'package:crop_disease_detection/screens/crop_disease_check_screen.dart';
+import 'package:crop_disease_detection/screens/plant_health_check_screen.dart';
+import 'package:crop_disease_detection/screens/widgets/CustomBanner.dart';
+import 'package:crop_disease_detection/screens/widgets/CustomPrimaryButton.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -6,52 +9,36 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
     return Scaffold(
       body: Column(
         children: [
-          Container(
-            margin: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: Constants.primaryColor.withOpacity(0.8),
-              borderRadius: BorderRadius.circular(10.0),
-              image: const DecorationImage(
-                alignment: Alignment.centerRight,
-                image: AssetImage(
-                  'assets/images/plant-one.png',
-                ),
-              ),
-            ),
-            child: const AspectRatio(
-              aspectRatio: 16 / 9,
-              child: Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Welcome Back!',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 35,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Text(
-                      "Nanda",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 26,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
+          const SizedBox(
+            height: 20,
+          ),
+          const CustomBanner(
+            img: 'assets/images/plant-one.png',
+            primaryTitle: 'Welcome Back!',
+            secondaryTitle: "Username",
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          //
+          CustomPrimaryButton(
+            size: size,
+            title: 'Plant Health Check',
+            screen: const PlantHealthCheckScreen(),
+          ),
+          //
+          const SizedBox(
+            height: 20,
+          ),
+          CustomPrimaryButton(
+            size: size,
+            title: "Crop Disease Check",
+            screen: const CropDiseaseCheckScreen(),
           ),
         ],
       ),

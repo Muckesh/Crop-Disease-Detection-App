@@ -42,24 +42,16 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              titles[_navIndex],
-              style: TextStyle(
-                color: Constants.blackColor,
-                fontWeight: FontWeight.w500,
-                fontSize: 24,
-              ),
-            ),
-            Icon(
-              Icons.notifications,
-              color: Constants.blackColor,
-              size: 30.0,
-            ),
-          ],
+        title: Text(
+          // titles[_navIndex],
+          "Plant Care",
+          style: TextStyle(
+            color: Constants.blackColor,
+            fontWeight: FontWeight.w500,
+            fontSize: 30,
+          ),
         ),
+        centerTitle: true,
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         elevation: 0.0,
       ),
