@@ -15,8 +15,8 @@ class MyApp extends StatelessWidget {
       title: 'Crop Disease Detection App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        useMaterial3: true,
-      ),
+          // useMaterial3: true,
+          ),
       home: const OnBoardingScreen(),
     );
   }

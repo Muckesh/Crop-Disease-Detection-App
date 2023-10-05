@@ -26,25 +26,22 @@ class CustomPrimaryButton extends StatelessWidget {
           ),
         );
       },
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Container(
-          width: size.width,
-          decoration: BoxDecoration(
-            color: Constants.primaryColor,
-            borderRadius: BorderRadius.circular(10),
-          ),
-          padding: const EdgeInsets.symmetric(
-            horizontal: 10,
-            vertical: 20,
-          ),
-          child: Center(
-            child: Text(
-              title,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 18.0,
-              ),
+      child: Container(
+        width: size.width,
+        decoration: BoxDecoration(
+          color: Constants.primaryColor,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        padding: const EdgeInsets.symmetric(
+          horizontal: 10,
+          vertical: 20,
+        ),
+        child: Center(
+          child: Text(
+            title,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 18.0,
             ),
           ),
         ),

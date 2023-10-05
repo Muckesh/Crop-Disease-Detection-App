@@ -12,35 +12,41 @@ class HomeScreen extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      body: Column(
-        children: [
-          const SizedBox(
-            height: 20,
-          ),
-          const CustomBanner(
-            img: 'assets/images/plant-one.png',
-            primaryTitle: 'Welcome Back!',
-            secondaryTitle: "Username",
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          //
-          CustomPrimaryButton(
-            size: size,
-            title: 'Plant Health Check',
-            screen: const PlantHealthCheckScreen(),
-          ),
-          //
-          const SizedBox(
-            height: 20,
-          ),
-          CustomPrimaryButton(
-            size: size,
-            title: "Crop Disease Check",
-            screen: const CropDiseaseCheckScreen(),
-          ),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(
+          vertical: 20.0,
+          horizontal: 20.0,
+        ),
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 20,
+            ),
+            const CustomBanner(
+              img: 'assets/images/plant-one.png',
+              primaryTitle: 'Welcome Back!',
+              secondaryTitle: "Username",
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            //
+            CustomPrimaryButton(
+              size: size,
+              title: 'Plant Health Check',
+              screen: const PlantHealthCheckScreen(),
+            ),
+            //
+            const SizedBox(
+              height: 20,
+            ),
+            CustomPrimaryButton(
+              size: size,
+              title: "Crop Disease Check",
+              screen: const CropDiseaseCheckScreen(),
+            ),
+          ],
+        ),
       ),
     );
   }

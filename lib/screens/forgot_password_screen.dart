@@ -1,6 +1,7 @@
 import 'package:crop_disease_detection/constants/constants.dart';
 import 'package:crop_disease_detection/screens/login_screen.dart';
 import 'package:crop_disease_detection/screens/signup_screen.dart';
+import 'package:crop_disease_detection/screens/widgets/CustomPrimaryButton.dart';
 import 'package:crop_disease_detection/screens/widgets/CustomTextField.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
@@ -27,7 +28,7 @@ class ForgotPasswordScreen extends StatelessWidget {
               const Text(
                 'Forgot \n Password ',
                 style: TextStyle(
-                  fontSize: 35,
+                  fontSize: 33,
                   fontWeight: FontWeight.w700,
                 ),
               ),
@@ -39,36 +40,10 @@ class ForgotPasswordScreen extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushReplacement(
-                    context,
-                    PageTransition(
-                      child: const LoginScreen(),
-                      type: PageTransitionType.bottomToTop,
-                    ),
-                  );
-                },
-                child: Container(
-                  width: size.width,
-                  decoration: BoxDecoration(
-                    color: Constants.primaryColor,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 10,
-                    vertical: 20,
-                  ),
-                  child: const Center(
-                    child: Text(
-                      "Reset Password",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18.0,
-                      ),
-                    ),
-                  ),
-                ),
+              CustomPrimaryButton(
+                size: size,
+                title: "Reset Password",
+                screen: const LoginScreen(),
               ),
               const SizedBox(
                 height: 20,

@@ -1,6 +1,7 @@
 import 'package:crop_disease_detection/constants/constants.dart';
 import 'package:crop_disease_detection/screens/login_screen.dart';
 import 'package:crop_disease_detection/screens/main_screen.dart';
+import 'package:crop_disease_detection/screens/widgets/CustomPrimaryButton.dart';
 import 'package:crop_disease_detection/screens/widgets/CustomTextField.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
@@ -14,7 +15,7 @@ class SignupScreen extends StatelessWidget {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(
-          vertical: 20,
+          vertical: 10,
           horizontal: 20,
         ),
         child: SingleChildScrollView(
@@ -27,7 +28,7 @@ class SignupScreen extends StatelessWidget {
               const Text(
                 'Sign Up',
                 style: TextStyle(
-                  fontSize: 35,
+                  fontSize: 33,
                   fontWeight: FontWeight.w700,
                 ),
               ),
@@ -46,39 +47,18 @@ class SignupScreen extends StatelessWidget {
                 obscureText: true,
                 hintText: 'Enter Password',
               ),
+              const CustomTextField(
+                icon: Icons.lock,
+                obscureText: true,
+                hintText: 'Confirm Password',
+              ),
               const SizedBox(
                 height: 10,
               ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushReplacement(
-                    context,
-                    PageTransition(
-                      child: const MainScreen(),
-                      type: PageTransitionType.bottomToTop,
-                    ),
-                  );
-                },
-                child: Container(
-                  width: size.width,
-                  decoration: BoxDecoration(
-                    color: Constants.primaryColor,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 10,
-                    vertical: 20,
-                  ),
-                  child: const Center(
-                    child: Text(
-                      "Sign Up",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18.0,
-                      ),
-                    ),
-                  ),
-                ),
+              CustomPrimaryButton(
+                size: size,
+                title: "Sign Up",
+                screen: const MainScreen(),
               ),
 
               //
@@ -136,7 +116,7 @@ class SignupScreen extends StatelessWidget {
               //
 
               const SizedBox(
-                height: 20,
+                height: 10,
               ),
 
               GestureDetector(
@@ -144,8 +124,9 @@ class SignupScreen extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     PageTransition(
-                        child: const LoginScreen(),
-                        type: PageTransitionType.bottomToTop),
+                      child: const LoginScreen(),
+                      type: PageTransitionType.bottomToTop,
+                    ),
                   );
                 },
                 child: Center(

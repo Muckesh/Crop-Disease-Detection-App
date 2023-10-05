@@ -2,6 +2,7 @@ import 'package:crop_disease_detection/constants/constants.dart';
 import 'package:crop_disease_detection/screens/forgot_password_screen.dart';
 import 'package:crop_disease_detection/screens/main_screen.dart';
 import 'package:crop_disease_detection/screens/signup_screen.dart';
+import 'package:crop_disease_detection/screens/widgets/CustomPrimaryButton.dart';
 import 'package:crop_disease_detection/screens/widgets/CustomTextField.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
@@ -28,7 +29,7 @@ class LoginScreen extends StatelessWidget {
               const Text(
                 'Log In',
                 style: TextStyle(
-                  fontSize: 35,
+                  fontSize: 33,
                   fontWeight: FontWeight.w700,
                 ),
               ),
@@ -45,37 +46,12 @@ class LoginScreen extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushReplacement(
-                    context,
-                    PageTransition(
-                      child: const MainScreen(),
-                      type: PageTransitionType.bottomToTop,
-                    ),
-                  );
-                },
-                child: Container(
-                  width: size.width,
-                  decoration: BoxDecoration(
-                    color: Constants.primaryColor,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 10,
-                    vertical: 20,
-                  ),
-                  child: const Center(
-                    child: Text(
-                      "Sign In",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18.0,
-                      ),
-                    ),
-                  ),
-                ),
+              CustomPrimaryButton(
+                size: size,
+                title: "Sign In",
+                screen: const MainScreen(),
               ),
+
               const SizedBox(
                 height: 10,
               ),

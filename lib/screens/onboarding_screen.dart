@@ -1,6 +1,7 @@
 import 'package:crop_disease_detection/constants/constants.dart';
 import 'package:crop_disease_detection/screens/login_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
@@ -54,8 +55,13 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             padding: const EdgeInsets.only(right: 20, top: 20),
             child: InkWell(
               onTap: () {
-                Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (_) => const LoginScreen()));
+                Navigator.pushReplacement(
+                  context,
+                  PageTransition(
+                    child: const LoginScreen(),
+                    type: PageTransitionType.leftToRight,
+                  ),
+                );
               },
               child: const Text(
                 "Skip",
@@ -131,8 +137,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     } else {
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(
-                          builder: (_) => const LoginScreen(),
+                        PageTransition(
+                          child: const LoginScreen(),
+                          type: PageTransitionType.leftToRight,
                         ),
                       );
                     }
