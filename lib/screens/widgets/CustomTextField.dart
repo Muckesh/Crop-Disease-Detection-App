@@ -5,11 +5,13 @@ class CustomTextField extends StatelessWidget {
   final IconData icon;
   final bool obscureText;
   final String hintText;
+  final TextEditingController controller;
   const CustomTextField({
     super.key,
     required this.icon,
     required this.obscureText,
     required this.hintText,
+    required this.controller,
   });
 
   @override
@@ -28,6 +30,7 @@ class CustomTextField extends StatelessWidget {
         hintText: hintText,
       ),
       cursorColor: Constants.blackColor.withOpacity(0.5),
+      controller: controller,
     );
   }
 }

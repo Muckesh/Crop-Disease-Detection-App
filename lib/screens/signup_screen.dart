@@ -7,7 +7,14 @@ import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
 class SignupScreen extends StatelessWidget {
-  const SignupScreen({super.key});
+  SignupScreen({super.key});
+
+  final emailController = TextEditingController();
+  final usernameController = TextEditingController();
+  final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
+
+  void signUp() {}
 
   @override
   Widget build(BuildContext context) {
@@ -32,25 +39,29 @@ class SignupScreen extends StatelessWidget {
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              const CustomTextField(
+              CustomTextField(
                 icon: Icons.alternate_email,
                 obscureText: false,
                 hintText: 'Enter Email',
+                controller: emailController,
               ),
-              const CustomTextField(
+              CustomTextField(
                 icon: Icons.person,
                 obscureText: false,
                 hintText: 'Enter Full Name',
+                controller: usernameController,
               ),
-              const CustomTextField(
+              CustomTextField(
                 icon: Icons.lock,
                 obscureText: true,
                 hintText: 'Enter Password',
+                controller: passwordController,
               ),
-              const CustomTextField(
+              CustomTextField(
                 icon: Icons.lock,
                 obscureText: true,
                 hintText: 'Confirm Password',
+                controller: confirmPasswordController,
               ),
               const SizedBox(
                 height: 10,
@@ -58,7 +69,7 @@ class SignupScreen extends StatelessWidget {
               CustomPrimaryButton(
                 size: size,
                 title: "Sign Up",
-                screen: const MainScreen(),
+                onTap: signUp,
               ),
 
               //
@@ -124,7 +135,7 @@ class SignupScreen extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     PageTransition(
-                      child: const LoginScreen(),
+                      child: LoginScreen(),
                       type: PageTransitionType.bottomToTop,
                     ),
                   );

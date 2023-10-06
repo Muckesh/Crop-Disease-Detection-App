@@ -7,7 +7,11 @@ import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
-  const ForgotPasswordScreen({super.key});
+  ForgotPasswordScreen({super.key});
+
+  final emailController = TextEditingController();
+
+  void resetPassword() {}
 
   @override
   Widget build(BuildContext context) {
@@ -32,10 +36,11 @@ class ForgotPasswordScreen extends StatelessWidget {
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              const CustomTextField(
+              CustomTextField(
                 icon: Icons.alternate_email,
                 obscureText: false,
                 hintText: 'Enter Email',
+                controller: emailController,
               ),
               const SizedBox(
                 height: 10,
@@ -43,7 +48,8 @@ class ForgotPasswordScreen extends StatelessWidget {
               CustomPrimaryButton(
                 size: size,
                 title: "Reset Password",
-                screen: const LoginScreen(),
+                // screen: const LoginScreen(),
+                onTap: resetPassword,
               ),
               const SizedBox(
                 height: 20,
@@ -53,7 +59,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     PageTransition(
-                        child: const SignupScreen(),
+                        child: SignupScreen(),
                         type: PageTransitionType.bottomToTop),
                   );
                 },

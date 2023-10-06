@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -5,9 +6,19 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text("Profile Screen"),
+    return Scaffold(
+      body: Column(
+        children: [
+          Center(
+            child: Text("Profile Screen"),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              FirebaseAuth.instance.signOut();
+            },
+            child: Text("Logout"),
+          ),
+        ],
       ),
     );
   }

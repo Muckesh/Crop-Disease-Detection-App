@@ -4,11 +4,26 @@ import 'package:crop_disease_detection/screens/main_screen.dart';
 import 'package:crop_disease_detection/screens/signup_screen.dart';
 import 'package:crop_disease_detection/screens/widgets/CustomPrimaryButton.dart';
 import 'package:crop_disease_detection/screens/widgets/CustomTextField.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+  LoginScreen({super.key});
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  // login
+  void logIn() async {
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+    } catch (e) {
+      print(e);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,15 +48,17 @@ class LoginScreen extends StatelessWidget {
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              const CustomTextField(
+              CustomTextField(
                 icon: Icons.alternate_email,
                 obscureText: false,
                 hintText: 'Enter Email',
+                controller: emailController,
               ),
-              const CustomTextField(
+              CustomTextField(
                 icon: Icons.lock,
                 obscureText: true,
                 hintText: 'Enter Password',
+                controller: passwordController,
               ),
               const SizedBox(
                 height: 10,
@@ -49,7 +66,7 @@ class LoginScreen extends StatelessWidget {
               CustomPrimaryButton(
                 size: size,
                 title: "Sign In",
-                screen: const MainScreen(),
+                onTap: logIn,
               ),
 
               const SizedBox(
@@ -60,7 +77,7 @@ class LoginScreen extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     PageTransition(
-                        child: const ForgotPasswordScreen(),
+                        child: ForgotPasswordScreen(),
                         type: PageTransitionType.bottomToTop),
                   );
                 },
@@ -147,7 +164,7 @@ class LoginScreen extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     PageTransition(
-                        child: const SignupScreen(),
+                        child: SignupScreen(),
                         type: PageTransitionType.bottomToTop),
                   );
                 },

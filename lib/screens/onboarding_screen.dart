@@ -58,7 +58,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 Navigator.pushReplacement(
                   context,
                   PageTransition(
-                    child: const LoginScreen(),
+                    child: LoginScreen(),
                     type: PageTransitionType.leftToRight,
                   ),
                 );
@@ -138,7 +138,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       Navigator.pushReplacement(
                         context,
                         PageTransition(
-                          child: const LoginScreen(),
+                          child: LoginScreen(),
                           type: PageTransitionType.leftToRight,
                         ),
                       );

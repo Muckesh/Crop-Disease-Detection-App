@@ -8,24 +8,26 @@ class CustomPrimaryButton extends StatelessWidget {
     super.key,
     required this.size,
     required this.title,
-    required this.screen,
+    required this.onTap,
   });
   final String title;
-  final Widget screen;
+
   final Size size;
+  final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Navigator.pushReplacement(
-          context,
-          PageTransition(
-            child: screen,
-            type: PageTransitionType.bottomToTop,
-          ),
-        );
-      },
+      onTap: onTap,
+      // onTap: () {
+      //   Navigator.pushReplacement(
+      //     context,
+      //     PageTransition(
+      //       child: screen,
+      //       type: PageTransitionType.bottomToTop,
+      //     ),
+      //   );
+      // },
       child: Container(
         width: size.width,
         decoration: BoxDecoration(

@@ -7,6 +7,10 @@ import 'package:flutter/material.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
+  void plantHealthCheckScreen() {}
+
+  void cropDiseaseCheckScreen() {}
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -34,7 +38,8 @@ class HomeScreen extends StatelessWidget {
             CustomPrimaryButton(
               size: size,
               title: 'Plant Health Check',
-              screen: const PlantHealthCheckScreen(),
+              // screen: const PlantHealthCheckScreen(),
+              onTap: plantHealthCheckScreen,
             ),
             //
             const SizedBox(
@@ -43,7 +48,8 @@ class HomeScreen extends StatelessWidget {
             CustomPrimaryButton(
               size: size,
               title: "Crop Disease Check",
-              screen: const CropDiseaseCheckScreen(),
+              // screen: const CropDiseaseCheckScreen(),
+              onTap: cropDiseaseCheckScreen,
             ),
           ],
         ),
