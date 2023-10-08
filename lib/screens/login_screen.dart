@@ -20,8 +20,12 @@ class LoginScreen extends StatelessWidget {
         email: emailController.text,
         password: passwordController.text,
       );
-    } catch (e) {
-      print(e);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        print("No user found for that email");
+      } else if (e.code == 'wrong-password') {
+        print("Wrong password provided for the user.");
+      }
     }
   }
 
@@ -164,8 +168,9 @@ class LoginScreen extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     PageTransition(
-                        child: SignupScreen(),
-                        type: PageTransitionType.bottomToTop),
+                      child: SignupScreen(),
+                      type: PageTransitionType.bottomToTop,
+                    ),
                   );
                 },
                 child: Center(

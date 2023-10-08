@@ -21,7 +21,7 @@ class AuthScreen extends StatelessWidget {
 
           // user not logged in
           else {
-            return const OnBoardingScreen();
+            return LoginScreen();
           }
         },
       ),
