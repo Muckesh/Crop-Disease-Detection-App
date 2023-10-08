@@ -1,5 +1,4 @@
 import 'package:crop_disease_detection/constants/constants.dart';
-import 'package:crop_disease_detection/screens/login_screen.dart';
 import 'package:crop_disease_detection/screens/signup_screen.dart';
 import 'package:crop_disease_detection/screens/widgets/CustomPrimaryButton.dart';
 import 'package:crop_disease_detection/screens/widgets/CustomTextField.dart';

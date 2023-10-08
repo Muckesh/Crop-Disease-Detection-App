@@ -1,7 +1,5 @@
-import 'package:crop_disease_detection/screens/home_screen.dart';
 import 'package:crop_disease_detection/screens/login_screen.dart';
 import 'package:crop_disease_detection/screens/main_screen.dart';
-import 'package:crop_disease_detection/screens/onboarding_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 

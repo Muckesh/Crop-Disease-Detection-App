@@ -1,5 +1,3 @@
-import 'package:crop_disease_detection/screens/crop_disease_check_screen.dart';
-import 'package:crop_disease_detection/screens/plant_health_check_screen.dart';
 import 'package:crop_disease_detection/screens/widgets/CustomBanner.dart';
 import 'package:crop_disease_detection/screens/widgets/CustomPrimaryButton.dart';
 import 'package:flutter/material.dart';

@@ -9,14 +9,14 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          Center(
+          const Center(
             child: Text("Profile Screen"),
           ),
           ElevatedButton(
             onPressed: () {
               FirebaseAuth.instance.signOut();
             },
-            child: Text("Logout"),
+            child: const Text("Logout"),
           ),
         ],
       ),
