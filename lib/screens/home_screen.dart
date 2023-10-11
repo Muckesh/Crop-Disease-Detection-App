@@ -1,6 +1,8 @@
+import 'package:crop_disease_detection/screens/detection_screen.dart';
 import 'package:crop_disease_detection/screens/widgets/CustomBanner.dart';
 import 'package:crop_disease_detection/screens/widgets/CustomPrimaryButton.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -47,7 +49,15 @@ class HomeScreen extends StatelessWidget {
               size: size,
               title: "Crop Disease Check",
               // screen: const CropDiseaseCheckScreen(),
-              onTap: cropDiseaseCheckScreen,
+              // onTap: cropDiseaseCheckScreen,
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  PageTransition(
+                      child: DetectionScreen(),
+                      type: PageTransitionType.bottomToTop),
+                );
+              },
             ),
           ],
         ),
