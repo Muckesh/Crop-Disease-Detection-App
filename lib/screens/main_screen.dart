@@ -46,7 +46,7 @@ class _MainScreenState extends State<MainScreen> {
           // titles[_navIndex],
           "Plant Care",
           style: TextStyle(
-            color: Constants.blackColor,
+            color: Constants.primaryColor,
             fontWeight: FontWeight.w500,
             fontSize: 30,
           ),

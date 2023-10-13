@@ -7,25 +7,52 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
   final emailController = TextEditingController();
+
   final passwordController = TextEditingController();
 
   // login
   void logIn() async {
+    // loading circle
+    showDialog(
+        context: context,
+        builder: (context) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        });
+    // signin
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: emailController.text,
         password: passwordController.text,
       );
+      // pop the loading circle
+      Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        print("No user found for that email");
-      } else if (e.code == 'wrong-password') {
-        print("Wrong password provided for the user.");
-      }
+      // pop the loading circle
+      Navigator.pop(context);
+      // wrong email
+      showErrorMessage(e.code);
     }
+  }
+
+  void showErrorMessage(String message) {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text(message),
+          );
+        });
   }
 
   @override

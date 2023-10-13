@@ -29,18 +29,18 @@ class HomeScreen extends StatelessWidget {
             const CustomBanner(
               img: 'assets/images/plant-one.png',
               primaryTitle: 'Welcome Back!',
-              secondaryTitle: "Username",
+              secondaryTitle: "Alexander",
             ),
             const SizedBox(
               height: 20,
             ),
             //
-            CustomPrimaryButton(
-              size: size,
-              title: 'Plant Health Check',
-              // screen: const PlantHealthCheckScreen(),
-              onTap: plantHealthCheckScreen,
-            ),
+            // CustomPrimaryButton(
+            //   size: size,
+            //   title: 'Plant Health Check',
+            //   // screen: const PlantHealthCheckScreen(),
+            //   onTap: plantHealthCheckScreen,
+            // ),
             //
             const SizedBox(
               height: 20,

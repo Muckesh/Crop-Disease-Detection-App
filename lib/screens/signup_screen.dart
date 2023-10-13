@@ -2,18 +2,65 @@ import 'package:crop_disease_detection/constants/constants.dart';
 import 'package:crop_disease_detection/screens/login_screen.dart';
 import 'package:crop_disease_detection/screens/widgets/CustomPrimaryButton.dart';
 import 'package:crop_disease_detection/screens/widgets/CustomTextField.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
-class SignupScreen extends StatelessWidget {
+class SignupScreen extends StatefulWidget {
   SignupScreen({super.key});
 
+  @override
+  State<SignupScreen> createState() => _SignupScreenState();
+}
+
+class _SignupScreenState extends State<SignupScreen> {
   final emailController = TextEditingController();
+
   final usernameController = TextEditingController();
+
   final passwordController = TextEditingController();
+
   final confirmPasswordController = TextEditingController();
 
-  void signUp() {}
+  // void signUp() {}
+  void signUp() async {
+    // loading circle
+    showDialog(
+        context: context,
+        builder: (context) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        });
+    // signin
+    try {
+      // confirm passwd
+      if (passwordController.text == confirmPasswordController.text) {
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+            email: emailController.text, password: passwordController.text);
+      } else {
+        // passwd mismatch
+        showErrorMessage("Passwords don't match!");
+      }
+      // pop the loading circle
+      Navigator.pop(context);
+    } on FirebaseAuthException catch (e) {
+      // pop the loading circle
+      Navigator.pop(context);
+      // wrong email
+      showErrorMessage(e.code);
+    }
+  }
+
+  void showErrorMessage(String message) {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text(message),
+          );
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
